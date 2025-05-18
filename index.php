@@ -14,7 +14,7 @@
 	<script src="js/script.js"></script>
 
 <body id="bodylog">
-	<?$login=false?>
+	<?php $login = false; ?>
 	<header>
 		<div class="uppage">
 			<h1 class="titu">Central de Cadastros e Login</h1>
@@ -23,7 +23,7 @@
 			<br>
 			<a href="cad.php" id="cad">Cadastro</a>
 			<br>
-			<a href="obras.php?login={<?$login?>}" id="obras">Obras</a>
+			<a href="obras.php?login=<?php echo $login ? 'true' : 'false'; ?>" id="obras">Obras</a>
 		</div>
 	</header>
 	<div class="container">
@@ -66,11 +66,17 @@
 				if (mysqli_num_rows($sql) > 0) {
 					echo "<h3>logado com sucesso</h3>";
 					$login=true;
-				} else {
-					echo "<h3>usuario ou senha incorretos</h3>";
-				}
+				// Start session and save user info
+				session_start();
+				$_SESSION['nome'] = $nome;
+				$_SESSION['login'] = true;
+				header("Location: obras.php");
+				exit;
+			} else {
+				echo "<h3>usuario ou senha incorretos</h3>";
 			}
-			?>
+			}
+		?>
 	</div>
 </body>
 

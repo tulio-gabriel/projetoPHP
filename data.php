@@ -42,20 +42,19 @@
 				$sql = $stmt->get_result();
 
 				if (mysqli_num_rows($sql) > 0) {
-					echo "<h3>Lista de Obras</h3><br>";
 		while ($obra = mysqli_fetch_assoc($sql)) {
 			echo "<div>";
 			echo "<h4 id=\"titulo\">". "Titulo: " . htmlspecialchars($obra['titulo']) . "</h4><br>";
 			echo "<h4 id=\"titulo\">" ."Categoria : ". htmlspecialchars($obra['tipo']) . "</h4><br>";
 			echo "<h4 id=\"titulo\">" ."Nota: ". htmlspecialchars($obra['nota']) . "</h4><br>";
-			echo "<img id=\"imglist\" src='" . htmlspecialchars($obra['image']) . "' alt='Image not found'/><br>";
+			echo "<img id=\"imglistfull\" src='" . htmlspecialchars($obra['image']) . "' alt='Image not found'/><br>";
 			echo "<h4 id=\"titulo\">" ."Resenhas: ". htmlspecialchars($obra['resenha']) . "</h4>";
 			echo "<div>";
 			echo "</div>";
 			echo "</div>";
 		}
 		} else {
-		echo "<h3>Erro ao encontrar os usuários</h3>";
+		echo "<h3>Erro ao encontrar as obras</h3>";
 		}
 		?>
 	</div>

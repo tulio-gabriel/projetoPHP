@@ -149,11 +149,27 @@ a:active {
 	border-radius: 5px;
 	box-shadow: 0px 0px 2px 1px black;
 	margin-bottom: 20px;
+	width: 320px;
+	height: 185px;
 }
 #imglist:hover{
 	transition: 0.5s;
 	box-shadow: 0px 0px 5px 2px black;
 }
 #bodyinfo{
-	background-color: lightgray;
+	background-color: rgb(228, 219, 230);
+}
+#imglistfull{
+	border-radius: 15px;
+	box-shadow: 0px 0px 2px 0px black;
+	margin-bottom: 20px;
+	width: 320px;
+	height: 185px;
+}
+#imglistfull:hover{
+	transition: 0;
+}
+#obrasContainer {
+	scrollbar-color: #9d73ea #e5e5e5;
+	scrollbar-width: thin;
 }

@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +45,7 @@
 				if (mysqli_num_rows($sql) > 0) {
 					echo "<h3>Lista de Obras</h3><br>";
 		while ($obra = mysqli_fetch_assoc($sql)) {
-			echo "<div>";
+			echo "<div id=\"obraslist\">";
 			echo "<h4 id=\"titulo\">" . htmlspecialchars($obra['titulo']) . "</h4>";
 			echo "<a href=\"data.php?id={$obra['id']}\" id=\"imglink\"><img id=\"imglist\" src='" . htmlspecialchars($obra['image']) . "' alt='Image not found'/></a>";
 			echo "</div>";
@@ -54,3 +58,20 @@
 </body>
 
 </html>
+<?php
+} else {
+	// Redirect to login page if not logged in
+
+	// Destroy session after 15 minutes of inactivity
+	if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
+		session_unset();
+		session_destroy();
+		header("Location: index.php?timeout=1");
+		exit();
+	}
+	$_SESSION['LAST_ACTIVITY'] = time();
+	header("Location: index.php");
+	exit();
+}
+?>
+?>

@@ -42,31 +42,16 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
 			<a href="categorias.php" id="categ">Categorias</a>
 		</div>
 	</header>
-	<div class="containerobras" id="obrasContainer">
+	<div class="container" id="obrasContainer">
 		<div class="info">
+			<form action="obrasCategoria.php" method="post">
+				<button name="categoria" value="filmes">Filmes</button>
+				<button name="categoria" value="jogos">Jogos</button>
+				<button name="categoria" value="livros">Livros</button>
+				<button name="categoria" value="musica">Música</button>
+				<br>
+			</form>
 		</div>
-		<?php
-				$con = mysqli_connect('localhost', 'root', 'dbskibdimt', 'loginphp');
-				if (!$con) {
-					error_log("Connection failed: " . mysqli_connect_error());
-					die("Connection failed: " . mysqli_connect_error());
-				}
-
-				$obras = "SELECT * FROM obras";
-				$sql = mysqli_query($con, $obras);
-
-				if (mysqli_num_rows($sql) > 0) {
-					echo "<h3>Lista de Obras</h3><br>";
-		while ($obra = mysqli_fetch_assoc($sql)) {
-			echo "<div id=\"obraslist\">";
-			echo "<h3 id=\"titulo\">" . htmlspecialchars($obra['titulo']) . "</h3>";
-			echo "<a href=\"data.php?id={$obra['id']}\" id=\"imglink\"><img id=\"imglist\" src='" . htmlspecialchars($obra['image']) . "' alt='Image not found'/></a>";
-			echo "</div>";
-		}
-		} else {
-		echo "<h3>Erro ao encontrar os usuários</h3>";
-		}
-		?>
 	</div>
 </body>
 

@@ -21,8 +21,23 @@
 	font-weight: 400;
 	font-size: 18px;
 }
+.containerobras {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	height: auto; 
+	width: 90vw; 
+	max-width: 700px;
+	padding: 10px;
+	border-radius: 5px;
+	background: linear-gradient(to bottom, #ffffff, #cec6e1, rgb(148, 131, 160)) no-repeat fixed;
+	box-shadow: 0px 0px 10px 3px #5100ff;
+	margin: 10vh auto;
+	overflow: hidden;
+}
 body{
-	background-size:120%;
+	background-size:100%;
 	animation: moveIt 25s alternate infinite;
   }
   @keyframes moveIt {
@@ -30,14 +45,14 @@ body{
 	to {background-position:top right;}
   }
   #bodyus{
-	background:linear-gradient(to bottom, #6a00ff, #5100ff, rgb(199, 163, 225)) no-repeat fixed ;
+	background:linear-gradient(to bottom,#d2b6e7, #5100ff, #ccafe1) no-repeat fixed ;
   }
   #bodylog{
-	background: linear-gradient(to right, #6a00ff, #5100ff, rgb(199, 163, 225)) no-repeat fixed ;
+	background: linear-gradient(to right,rgb(199, 163, 225), #6a00ff, #5100ff, rgb(199, 163, 225)) no-repeat fixed ;
 	animation: moveIt 25s alternate infinite;
   }
   #bodycad{
-	background: linear-gradient(to left, #6a00ff, #5100ff, rgb(199, 163, 225)) no-repeat fixed ;
+	background: linear-gradient(to bottom,rgb(199, 163, 225), #6a00ff, #5100ff, rgb(199, 163, 225)) no-repeat fixed ;
 	animation: moveIt 25s alternate infinite;
   }
 form{
@@ -110,11 +125,16 @@ a:active {
 }
 #obrasContainer {
 	height: 80vh;
-	width: 45vw;
-	max-height: 70vh;
-	overflow: auto;
+	width: 100%;
+	max-width: 700px;
+	overflow-y: auto;
+ 	overflow-x: hidden;
+	overflow-wrap: break-word;
 	margin-top: 2vh;
+	scrollbar-color: #9d73ea #e5e5e5;
+	scrollbar-width: thin;
 }
+
 #obrasContainer::-webkit-scrollbar {
 	width: 8px;
 }
@@ -157,19 +177,39 @@ a:active {
 	box-shadow: 0px 0px 5px 2px black;
 }
 #bodyinfo{
-	background-color: rgb(228, 219, 230);
+	background:linear-gradient(to bottom, rgb(186, 151, 220) 30%,rgb(214, 207, 230), #b6a9e2 90%) no-repeat fixed ;
+	animation: moveIt 25s alternate infinite;
 }
 #imglistfull{
 	border-radius: 15px;
-	box-shadow: 0px 0px 2px 0px black;
+	box-shadow: 0px 0px 2px 2px black;
 	margin-bottom: 20px;
 	width: 320px;
 	height: 185px;
+	border: none;
 }
 #imglistfull:hover{
-	transition: 0;
-}
-#obrasContainer {
-	scrollbar-color: #9d73ea #e5e5e5;
+/* Removed duplicate #obrasContainer selector, merged properties above */
 	scrollbar-width: thin;
+}
+footer{
+	height: 4vh;
+	background-color: white;
+	margin-bottom: 0px;
+	padding: 0px;
+	text-align: center;
+	margin-top: 6vh;
+}
+#datalist{
+	width: 90%;
+	height: 90%;
+	display: flex;
+	flex-direction: column;
+	align-items:flex-start;
+	justify-content:center;
+	font-size: 20px;
+	background:linear-gradient(to bottom, #c9c5d6, #ffffff,#afacba72) no-repeat fixed ; 
+	border-radius: 5px;
+	padding: 15px;
+	padding-bottom: 10px;
 }

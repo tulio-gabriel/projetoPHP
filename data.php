@@ -23,6 +23,8 @@
 			<a href="cad.php" id="cad">Cadastro</a>
 			<br>
 			<a href="obras.php" id="obras">Obras</a>
+			<br>
+			<a href="categorias.php" id="categ">Categorias</a>
 		</div>
 	</header>
 	<div class="container" id="obrasContainer">
@@ -43,14 +45,12 @@
 
 				if (mysqli_num_rows($sql) > 0) {
 		while ($obra = mysqli_fetch_assoc($sql)) {
-			echo "<div>";
+			echo "<div id=\"datalist\">";
 			echo "<h4 id=\"titulo\">". "Titulo: " . htmlspecialchars($obra['titulo']) . "</h4><br>";
-			echo "<h4 id=\"titulo\">" ."Categoria : ". htmlspecialchars($obra['tipo']) . "</h4><br>";
-			echo "<h4 id=\"titulo\">" ."Nota: ". htmlspecialchars($obra['nota']) . "</h4><br>";
+			echo "<h4 id=\"titulo\">" ."Categoria : ". htmlspecialchars($obra['tipo']) . "🖥️</h4><br>";
+			echo "<h4 id=\"titulo\">" ."Nota: ". htmlspecialchars($obra['nota']) . "⭐</h4><br>";
 			echo "<img id=\"imglistfull\" src='" . htmlspecialchars($obra['image']) . "' alt='Image not found'/><br>";
-			echo "<h4 id=\"titulo\">" ."Resenhas: ". htmlspecialchars($obra['resenha']) . "</h4>";
-			echo "<div>";
-			echo "</div>";
+			echo "<h4 id=\"titulo\">" ."Resenhas: ". htmlspecialchars($obra['resenha']) . "</h4>"."<br>";
 			echo "</div>";
 		}
 		} else {

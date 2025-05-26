@@ -31,7 +31,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
 <body id="bodyus">
 	<header>
 		<div class="uppage">
-			<h1 class="titu">Listagem de Obras</h1>
+			<h1 class="titu">Listagem de Obras Por Categoria</h1>
 			<br>
 			<a href="index.php" id="log">Login</a>
 			<br>
@@ -52,19 +52,35 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
 					die("Connection failed: " . mysqli_connect_error());
 				}
 
-				$obras = "SELECT * FROM obras";
-				$sql = mysqli_query($con, $obras);
-
-				if (mysqli_num_rows($sql) > 0) {
-					echo "<h3>Lista de Obras</h3><br>";
-		while ($obra = mysqli_fetch_assoc($sql)) {
-			echo "<div id=\"obraslist\">";
-			echo "<h3 id=\"titulo\">" . htmlspecialchars($obra['titulo']) . "</h3>";
-			echo "<a href=\"data.php?id={$obra['id']}\" id=\"imglink\"><img id=\"imglist\" src='" . htmlspecialchars($obra['image']) . "' alt='Image not found'/></a>";
-			echo "</div>";
+		$categ = isset($_POST["categoria"]) ? $_POST["categoria"] : null;
+		$obras = null;
+		if ($categ == "filmes") {
+			$obras = "SELECT * FROM obras WHERE tipo='Filme'";
 		}
+		if ($categ == "jogos") {
+			$obras = "SELECT * FROM obras WHERE tipo='jogos'";
+		}
+		if ($categ == "livros") {
+			$obras = "SELECT * FROM obras WHERE tipo='livros'";
+		}
+		if ($categ == "musica") {
+			$obras = "SELECT * FROM obras WHERE tipo='musica'";
+		}
+		if ($obras) {
+			$sql = mysqli_query($con, $obras);
+			if ($sql && mysqli_num_rows($sql) > 0) {
+				echo "<h3>Lista de Obras</h3><br>";
+				while ($obra = mysqli_fetch_assoc($sql)) {
+					echo "<div id=\"obraslist\">";
+					echo "<h3 id=\"titulo\">" . htmlspecialchars($obra['titulo']) . "</h3>";
+					echo "<a href=\"data.php?id={$obra['id']}\" id=\"imglink\"><img id=\"imglist\" src='" . htmlspecialchars($obra['image']) . "' alt='Image not found'/></a>";
+					echo "</div>";
+				}
+			} else {
+				echo "<h3>Nenhuma obra encontrada para esta categoria.</h3>";
+			}
 		} else {
-		echo "<h3>Erro ao encontrar os usuários</h3>";
+			echo "<h3>Selecione uma categoria para listar as obras.</h3>";
 		}
 		?>
 	</div>

@@ -24,6 +24,8 @@
 			<a href="cad.php" id="cad">Cadastro</a>
 			<br>
 			<a href="obras.php?login=<?php echo $login ? 'true' : 'false'; ?>" id="obras">Obras</a>
+			<br>
+			<a href="obras.php?categorias=<?php echo $login ? 'true' : 'false'; ?>" id="categ">Categorias</a>
 		</div>
 	</header>
 	<div class="container">
@@ -78,6 +80,9 @@
 			}
 		?>
 	</div>
+	<footer>
+		&copy; <?php echo date("Y"); ?> Trakksy. Todos os direitos reservados.
+	</footer>
 </body>
 
 </html>

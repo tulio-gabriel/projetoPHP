@@ -26,7 +26,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
-	height: auto; 
+	height: auto;
 	width: 90vw; 
 	max-width: 700px;
 	padding: 10px;
@@ -36,6 +36,18 @@
 	margin: 10vh auto;
 	overflow: hidden;
 }
+#obrasContainer {
+	height: 73vh;
+	width: 100%;
+	max-width: 700px;
+	overflow-y: auto;
+ 	overflow-x: hidden;
+	overflow-wrap: break-word;
+	margin-top: 2vh;
+	scrollbar-color: #9d73ea #e5e5e5;
+	scrollbar-width: thin;
+}
+
 body{
 	background-size:100%;
 	animation: moveIt 25s alternate infinite;
@@ -48,13 +60,19 @@ body{
 	background:linear-gradient(to bottom,#d2b6e7, #5100ff, #ccafe1) no-repeat fixed ;
   }
   #bodylog{
-	background: linear-gradient(to right,rgb(199, 163, 225), #6a00ff, #5100ff, rgb(199, 163, 225)) no-repeat fixed ;
-	animation: moveIt 25s alternate infinite;
+	 background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../img/pexels-rkftr-4335771.jpg);
+	animation: moveIt 25s infinite;
+	background-size:contain;
+	animation-timing-function: linear;
   }
   #bodycad{
-	background: linear-gradient(to bottom,rgb(199, 163, 225), #6a00ff, #5100ff, rgb(199, 163, 225)) no-repeat fixed ;
-	animation: moveIt 25s alternate infinite;
-  }
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../img/pexels-mickhaupt-5163786.jpg);
+	animation: moveIt 25s infinite;
+	background-size:contain;
+	animation-timing-function: linear;
+}
 form{
 	display: flex;
 	align-items: center;
@@ -123,18 +141,6 @@ a:hover{
 a:active {
 	background-color: #8f7fa8;
 }
-#obrasContainer {
-	height: 80vh;
-	width: 100%;
-	max-width: 700px;
-	overflow-y: auto;
- 	overflow-x: hidden;
-	overflow-wrap: break-word;
-	margin-top: 2vh;
-	scrollbar-color: #9d73ea #e5e5e5;
-	scrollbar-width: thin;
-}
-
 #obrasContainer::-webkit-scrollbar {
 	width: 8px;
 }
@@ -187,9 +193,13 @@ a:active {
 	width: 320px;
 	height: 185px;
 	border: none;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
 }
-#imglistfull:hover{
 /* Removed duplicate #obrasContainer selector, merged properties above */
+#imglistfull:hover{
 	scrollbar-width: thin;
 }
 footer{
@@ -201,15 +211,36 @@ footer{
 	margin-top: 6vh;
 }
 #datalist{
-	width: 90%;
-	height: 90%;
-	display: flex;
-	flex-direction: column;
-	align-items:flex-start;
-	justify-content:center;
-	font-size: 20px;
-	background:linear-gradient(to bottom, #c9c5d6, #ffffff,#afacba72) no-repeat fixed ; 
+	height: 100vh;
+	width: 100%;
+	max-width: 700px;
+	overflow-y: auto;
+ 	overflow-x: hidden;
+	overflow-wrap: break-word;
+	margin-top: 2vh;
+	scrollbar-color: #9d73ea #e5e5e5;
+	scrollbar-width: thin;
+	background-color: white;
 	border-radius: 5px;
-	padding: 15px;
-	padding-bottom: 10px;
+	font-size: 20px;
+	padding: 10px;
+}
+#btncategoria{
+	background-color: #5100ff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px;
+	cursor: pointer;
+	width: 100%;
+	font-size: 22px;
+	height: 8vh;
+	margin-top: 10px;
+}
+#btncategoria:hover{
+	background-color: #9d73ea;
+	transition: 0.2s;
+}
+h4{
+	text-align: center;
 }

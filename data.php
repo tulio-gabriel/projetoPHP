@@ -27,7 +27,7 @@
 			<a href="categorias.php" id="categ">Categorias</a>
 		</div>
 	</header>
-	<div class="container" id="obrasContainer">
+	<div class="containerobras" id="obrasContainer">
 		<div class="info">
 		</div>
 		<?php
@@ -50,6 +50,7 @@
 			echo "<h4 id=\"titulo\">" ."Categoria : ". htmlspecialchars($obra['tipo']) . "🖥️</h4><br>";
 			echo "<h4 id=\"titulo\">" ."Nota: ". htmlspecialchars($obra['nota']) . "⭐</h4><br>";
 			echo "<img id=\"imglistfull\" src='" . htmlspecialchars($obra['image']) . "' alt='Image not found'/><br>";
+			echo "<p id=\"titulo\">" ."<h4>Sinopse:</h4><br> ". htmlspecialchars($obra['sinopse']) . "</p><br>";
 			echo "<h4 id=\"titulo\">" ."Resenhas: ". htmlspecialchars($obra['resenha']) . "</h4>"."<br>";
 			echo "</div>";
 		}

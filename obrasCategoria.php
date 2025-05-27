@@ -80,7 +80,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
 				echo "<h3>Nenhuma obra encontrada para esta categoria.</h3>";
 			}
 		} else {
-			echo "<h3>Selecione uma categoria para listar as obras.</h3>";
+			echo "<br><h3>Selecione uma categoria para listar as obras.</h3>";
 		}
 		?>
 	</div>

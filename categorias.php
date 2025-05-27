@@ -44,11 +44,13 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
 	</header>
 	<div class="container" id="obrasContainer">
 		<div class="info">
+			<h1>Lista de Categorias</h1>
+			<br>
 			<form action="obrasCategoria.php" method="post">
-				<button name="categoria" value="filmes">Filmes</button>
-				<button name="categoria" value="jogos">Jogos</button>
-				<button name="categoria" value="livros">Livros</button>
-				<button name="categoria" value="musica">Música</button>
+				<button id="btncategoria" name="categoria" value="filmes">Filmes 📽️</button>
+				<button id="btncategoria" name="categoria" value="jogos">Jogos 🎮</button>
+				<button id="btncategoria" name="categoria" value="livros">Livros 📕</button>
+				<button id="btncategoria" name="categoria" value="musica">Música 🎵</button>
 				<br>
 			</form>
 		</div>
